@@ -1,5 +1,6 @@
 /**
 	* Get a lists of students.
+	* @author Abdullah Ismail <https://github.com/Torbary>
 	* @returns a key value array
 	*/
 export default function getListStudents() {
