@@ -5,8 +5,8 @@
 	*   firstName: string,
 	*   location: string
 	* }[]} students - The list of students
-	* @author Torbary
-	* @returns Array or empty array
+	* @author Torbary <https://github.com/Torbary>
+	* @returns
 	*/
 export default function getListStudentIds(students) {
   if (students instanceof Array) {
