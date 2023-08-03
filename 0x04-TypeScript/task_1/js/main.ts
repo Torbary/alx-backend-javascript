@@ -1,13 +1,40 @@
-function printTeacher(firstName: string, lastName: string): string {
-  const firstLetter = firstName.charAt(0).toUpperCase();
-  const fullName = `${firstLetter}. ${lastName}`;
-  return fullName;
+// main.ts
+
+interface StudentData {
+  firstName: string;
+  lastName: string;
 }
 
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
 }
 
-const teacher: printTeacherFunction = printTeacher;
-const formattedName = teacher("John", "Doe");
-console.log(formattedName);
+class StudentClass implements StudentClassInterface {
+  private firstName: string;
+  //private lastName: string;
+
+  constructor(data: StudentData) {
+    this.firstName = data.firstName;
+    //this.lastName = data.lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Create a student object using the StudentClass
+const studentData: StudentData = {
+  firstName: 'John',
+  lastName: 'Doe',
+};
+
+const student: StudentClassInterface = new StudentClass(studentData);
+
+console.log(student.displayName()); // Output: "John"
+console.log(student.workOnHomework()); // Output: "Currently working"
