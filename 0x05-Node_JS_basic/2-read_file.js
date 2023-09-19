@@ -19,12 +19,12 @@ const countStudents = (path) => {
       if (header[i] === 'field') {
         fieldIndexMap['field'] = i;
         break;
-      }
-    }
+      };
+    };
 
     if (!fieldIndexMap.hasOwnProperty('field')) {
       throw new Error('Invalid database format: Missing "field" column');
-    }
+    };
 
     const counts = {};
     const lists = {};
@@ -37,22 +37,22 @@ const countStudents = (path) => {
       if (!counts[field]) {
         counts[field] = 0;
         lists[field] = [];
-      }
+      };
 
       counts[field]++;
       lists[field].push(firstName);
-    }
+    };
 
     console.log(`Number of students: ${lines.length - 1}`);
 
     for (const field in counts) {
       if (counts.hasOwnProperty(field)) {
         console.log(`Number of students in ${field}: ${counts[field]}. List: ${lists[field].join(', ')}`);
-      }
-    }
+      };
+    };
   } catch (error) {
     throw new Error('Cannot load the database');
-  }
-}
+  };
+};
 
 module.exports = countStudents;
