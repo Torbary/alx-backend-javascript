@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-function countStudents(path) {
+const countStudents = (path) => {
   // Attempt to read the database file synchronously
   try {
     const data = fs.readFileSync(path, 'utf8');
